@@ -74,7 +74,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
             isLoading={isLoading}
             disabled={isLoading}
           >
-            {isLoading ? 'Logging in...' : 'Login'}
+            {isLoading ? 'Signing in...' : 'Sign In'}
           </Button>
         </form>
         <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
@@ -82,9 +82,6 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
           <Link to="/signup" className="font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300">
             Sign up
           </Link>
-        </p>
-        <p className="mt-4 text-center text-xs text-gray-500 dark:text-gray-400">
-          Try with username: admin (role: ADMIN), editor (role: EDITOR), or reader (role: READER). Password for all is 'password'.
         </p>
       </div>
     </div>
