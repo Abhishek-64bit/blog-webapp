@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
@@ -7,11 +8,11 @@ import BlogPostPage from './pages/BlogPostPage';
 import CategoryPage from './pages/CategoryPage';
 import TagsPage from './pages/TagsPage';
 import LoginPage from './pages/Auth/LoginPage';
-import SignupPage from './pages/Auth/SignupPage';
 import AdminDashboardPage from './pages/Admin/AdminDashboardPage';
 import AdminPostsPage from './pages/Admin/AdminPostsPage';
 import AdminCommentsPage from './pages/Admin/AdminCommentsPage';
 import AdminUsersPage from './pages/Admin/AdminUsersPage';
+import AdminSignupPage from './pages/Admin/AdminSignupPage'; // Import new AdminSignupPage
 import AdminMediaPage from './pages/Admin/AdminMediaPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { UserRole } from './types';
@@ -67,7 +68,7 @@ const App: React.FC = () => {
           <Route path="tag/:tagSlug" element={<Navigate replace to="/?tag=:tagSlug" />} />
           <Route path="search" element={<HomePage searchQuery={searchQuery} />} />
           <Route path="login" element={<LoginPage onLogin={handleLogin} />} />
-          <Route path="signup" element={<SignupPage />} />
+          {/* Removed public signup route */}
           <Route path="privacy" element={<p className="text-center p-8">Privacy Policy page content.</p>} />
           <Route path="terms" element={<p className="text-center p-8">Terms of Service page content.</p>} />
         </Route>
@@ -79,6 +80,11 @@ const App: React.FC = () => {
           <Route path="posts" element={<AdminPostsPage />} />
           <Route path="comments" element={<AdminCommentsPage />} />
           <Route path="users" element={<AdminUsersPage />} />
+          {/* Admin Signup Route - Only accessible by ADMIN role */}
+          <Route 
+            path="add-user" 
+            element={userRole === UserRole.ADMIN ? <AdminSignupPage /> : <Navigate to="/admin/dashboard" replace />} 
+          />
           <Route path="media" element={<AdminMediaPage />} />
         </Route>
 

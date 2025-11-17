@@ -1,3 +1,4 @@
+
 import { BlogPost, Comment, User, UserRole, Category, Tag } from './types';
 
 export const MOCK_BLOG_POSTS: BlogPost[] = [
@@ -259,5 +260,6 @@ export const ADMIN_NAV_ITEMS = [
   { name: 'Posts', path: '/admin/posts' },
   { name: 'Comments', path: '/admin/comments' },
   { name: 'Users', path: '/admin/users' },
+  { name: 'Add User', path: '/admin/add-user' }, // New Admin Nav Item
   { name: 'Media', path: '/admin/media' },
 ];

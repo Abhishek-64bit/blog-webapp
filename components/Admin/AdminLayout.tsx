@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import AdminSidebar from './AdminSidebar';
@@ -16,7 +17,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ isAuthenticated, userRole }) 
 
   return (
     <div className="flex bg-gray-100 dark:bg-gray-950 min-h-screen">
-      <AdminSidebar />
+      <AdminSidebar userRole={userRole} />
       <main className="flex-grow p-6 lg:p-8">
         <Outlet />
       </main>

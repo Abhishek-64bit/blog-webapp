@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
 import { User, UserRole } from '../../types';
 import { MOCK_USERS } from '../../constants';
@@ -11,8 +12,10 @@ const AdminUsersPage: React.FC = () => {
 
   const fetchUsers = useCallback(() => {
     setLoading(true);
+    // Simulate API call, sorting users by username
     setTimeout(() => {
-      // Deep copy to avoid direct mutation of constant if needed
+      // Create a new array from MOCK_USERS to trigger a state update if MOCK_USERS has changed.
+      // Although MOCK_USERS is a constant, it's being mutated for demo purposes.
       setUsers([...MOCK_USERS].sort((a, b) => a.username.localeCompare(b.username)));
       setLoading(false);
     }, 500);
